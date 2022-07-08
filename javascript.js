@@ -58,7 +58,7 @@ function game() {
     while(playerScore + computerScore != 5) {
         const player = playerPlay();
         const computer = computerPlay();
-        gameLoop(player, computer);
+        gameLoop(player, computer); //this doesn't work
         getScore();
     }
 }
