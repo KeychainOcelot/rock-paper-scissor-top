@@ -5,13 +5,20 @@ let computerScore = 0;
 function playerPlay() {
     //get player input
     let playerSelection = 0;
+    const choice = prompt("Please enter 'rock', 'paper', or 'scissor'");
+    for(let i = 0; i < 3; i++) {
+        if(choice == RPS[i]) {
+            playerSelection = i;
+            break;
+        }
+    }
     return playerSelection;
 }
 
 function computerPlay() {
     //randomiser to make computer pick from RPS array
     let computerSelection = 0;
-
+    computerSelection = Math.floor(Math.random() * RPS.length);
     return computerSelection;
 }
 
@@ -45,10 +52,14 @@ function getScore() {
     } else if(thisTurn == true) {
         playerScore += 1;
     }
-    return playerScore;
 }
 
 function game() {
-
+    while(playerScore + computerScore != 5) {
+        const player = playerPlay();
+        const computer = computerPlay();
+        gameLoop(player, computer);
+        getScore();
+    }
 }
 
