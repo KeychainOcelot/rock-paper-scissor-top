@@ -18,12 +18,14 @@ function playerPlay() {
 function computerPlay() {
     //randomiser to make computer pick from RPS array
     let computerSelection = 0;
-    computerSelection = random(0, 3);
+    computerSelection = Math.floor(Math.random() * (3 + 1));
     return computerSelection;
 }
 
 function gameLoop(playerSelection, computerSelection) {
     let playerWin = false;
+    let playerScore = 0;
+    let computerScore = 0;
     if (playerSelection == computerSelection) {
         playerWin = false;
     } else if (playerSelection == 0 && computerSelection == 1) {
@@ -41,26 +43,21 @@ function gameLoop(playerSelection, computerSelection) {
     }
 
     if (playerWin == true) {
+        playerScore += 1;
         window.alert("You win!");
         window.alert(`Your points: ${playerScore}
-        Computer's points: ${computerScore}`);
+Computer's points: ${computerScore}`);
+    }
+    else {
+        computerScore += 1;
+        window.alert("You lose!");
+        window.alert(`Your points: ${playerScore}
+Computer's points: ${computerScore}`);
     }
     return playerWin;
 }
 
-//scoring has to be completely rewritten
 
-// function getScore() {
-//     let thisTurn = false;
-//     playerSelection = playerPlay;
-//     computerSelection = computerPlay;
-//     thisTurn = gameLoop(playerSelection, computerSelection);
-//     if (thisTurn == false) {
-//         computerScore += 1;
-//     } else if (thisTurn == true) {
-//         playerScore += 1;
-//     }
-// }
 
 function game() {
     const letsPlay = prompt("Press enter to play Rock, Paper, Scissor");
