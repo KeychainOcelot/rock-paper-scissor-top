@@ -1,3 +1,5 @@
+//currently goes into infinite loop
+
 const RPS = ["rock", "paper", "scissor"];
 let playerScore = 0;
 let computerScore = 0;
@@ -43,7 +45,7 @@ function gameLoop(playerSelection, computerSelection) {
 }
 
 function getScore() {
-    const thisTurn = false;
+    let thisTurn = false;
     playerSelection = playerPlay;
     computerSelection = computerPlay;
     thisTurn = gameLoop(playerSelection, computerSelection);
@@ -55,11 +57,13 @@ function getScore() {
 }
 
 function game() {
+    const letsPlay = prompt("Press enter to play Rock, Paper, Scissor");
     while(playerScore + computerScore != 5) {
         const player = playerPlay();
         const computer = computerPlay();
-        gameLoop(player, computer); //this doesn't work
+        gameLoop(playerPlay(), computerPlay()); //this should work
         getScore();
     }
 }
 
+game();
