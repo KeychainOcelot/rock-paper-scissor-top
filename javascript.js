@@ -11,6 +11,7 @@ function playerPlay() {
 function computerPlay() {
     //randomiser to make computer pick from RPS array
     let computerSelection = 0;
+    
 
     return computerSelection;
 }
