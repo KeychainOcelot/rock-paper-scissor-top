@@ -1,5 +1,5 @@
 //a complete do-over of the rock paper scissor Odin Project assignment
-
+let playerWin = false;
 const intro = function() {
     window.alert(`Welcome to Rock, paper, scissor!
         Click okay to start!`);
@@ -32,16 +32,34 @@ const computerTurn = function() {
 }
 
 const turn = function(playerChoice, computerChoice){
-    
+    if (playerSelection === computerSelection) {
+        playerWin = false;
+    } else if (playerSelection == 0 && computerSelection == 1) {
+        playerWin = false;
+    } else if (playerSelection == 0 && computerSelection == 2) {
+        playerWin = true;
+    } else if (playerSelection == 1 && computerSelection == 0) {
+        playerWin = true;
+    } else if (playerSelection == 1 && computerSelection == 2) {
+        playerWin = false;
+    } else if (playerSelection == 2 && computerSelection == 0) {
+        playerWin = false;
+    } else if (playerSelection == 2 && computerSelection == 1) {
+        playerWin = true;
+    }
 }
 
 const gameLoop = function() {
     let playerScore = 0, computerScore = 0;
-    
+        
     //decide turn
+    
     //player turn
+    playerTurn();
     //computer turn
+    computerTurn();
     //decide winner
+    getWinner();
     //keep going until playerScore || computerScore === 5
 }
 
