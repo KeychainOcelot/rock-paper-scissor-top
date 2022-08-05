@@ -1,4 +1,5 @@
 const RPS = ["rock", "paper", "scissor"]; //might delete this. not really used anywhere
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -56,8 +57,6 @@ Computer's points: ${computerScore}`);
     }
     return playerWin;
 }
-
-
 
 function game() {
     const letsPlay = prompt("Press enter to play Rock, Paper, Scissor");

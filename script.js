@@ -5,8 +5,33 @@ const intro = function() {
         Click okay to start!`);
 
 }
+//prompts players for a choice
+const playerTurn = function() {
+    let playerChoice;
+    let player = prompt("Rock, paper or scissor?");
+    player = player.toLowerCase;
+    //code for player turn input
+    if(player === 'rock') {
+        playerChoice = 0;
+    } else if(player === 'paper') {
+        playerChoice = 1;
+    } else if(player === 'scissor') {
+        playerChoice = 2;
+    } else {
+        window.alert("That is not a valid choice. Try again");
+        playerTurn();
+    }
+    return playerChoice;
+}
 
-const turn = function() {
+//returns 0, 1 or 2 randomly
+const computerTurn = function() {
+    let computerChoice;
+    computerChoice = Math.floor(Math.random() * 3); 
+    return computerChoice;
+}
+
+const turn = function(playerChoice, computerChoice){
     
 }
 
@@ -21,11 +46,10 @@ const gameLoop = function() {
 }
 
 const getWinner = (playerScore = 0, computerScore = 0) => {
-    let winner = false;
     if(playerScore === 5) {
-        return winner = true;
+        return true;
     } else {
-        return winner = false;
+        return false;
     }
 }
 
