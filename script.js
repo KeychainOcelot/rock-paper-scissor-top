@@ -51,8 +51,6 @@ const turn = function(playerChoice, computerChoice){
 
 const gameLoop = function() {
     let playerScore = 0, computerScore = 0;
-        
-    //decide turn
     
     //player turn
     playerTurn();
@@ -63,11 +61,19 @@ const gameLoop = function() {
     //keep going until playerScore || computerScore === 5
 }
 
-const getWinner = (playerScore = 0, computerScore = 0) => {
-    if(playerScore === 5) {
-        return true;
+const score = (playerWin) {
+    if(playerWin === true) {
+        playerScore++;
     } else {
-        return false;
+    computerScore++;
+    }
+}
+
+const getWinner = function() {
+    if(playerScore === 5) {
+        window.alert(`You win!`);
+    } else {
+        window.alert(`You lose.`);
     }
 }
 
