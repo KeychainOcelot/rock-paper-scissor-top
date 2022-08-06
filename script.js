@@ -6,8 +6,7 @@ let computerScore = 0;
 
 const intro = function() {
     window.alert(`Welcome to Rock, paper, scissor!
-        Click okay to start!`);
-
+Click okay to start!`);
 }
 
 //prompts player for a choice
@@ -36,7 +35,8 @@ const turn = function(playerChoice, computerChoice){
     const computerSelection = computerChoice;
     let playerWin = false;
     if (playerSelection === computerSelection) {
-        playerWin = false;
+        window.alert(`It's a tie!`);
+        gameLoop();
     } else if (playerSelection == 0 && computerSelection == 1) {
         playerWin = false;
     } else if (playerSelection == 0 && computerSelection == 2) {
