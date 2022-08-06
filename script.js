@@ -1,9 +1,6 @@
 //a complete do-over of the rock paper scissor Odin Project assignment
 
-
-//TO-DO: Show player immediate result
-
-let playerWin = false;
+let playerWinRound = false;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -12,11 +9,10 @@ const intro = function() {
         Click okay to start!`);
 
 }
-//prompts players for a choice
+
+//prompts player for a choice
 const playerTurn = function() {
-    //this part is going into infinite loop and player is null
     let player = prompt("Rock, paper or scissor?");
-    //code for player turn input
     if(player === 'rock') {
         return playerChoice = 0;
     } else if(player === 'paper') {
@@ -26,7 +22,7 @@ const playerTurn = function() {
     }
 }
 
-//returns 0, 1 or 2 randomly
+//returns 0, 1 or 2 randomly for computer's input
 const computerTurn = function() {
     let computerChoice;
     computerChoice = Math.floor(Math.random() * 3); 
@@ -34,9 +30,11 @@ const computerTurn = function() {
 }
 
 //this has to be done better somehow
+//compares playerChoice and computerChoice
 const turn = function(playerChoice, computerChoice){
     const playerSelection = playerChoice;
     const computerSelection = computerChoice;
+    let playerWin = false;
     if (playerSelection === computerSelection) {
         playerWin = false;
     } else if (playerSelection == 0 && computerSelection == 1) {
@@ -52,15 +50,26 @@ const turn = function(playerChoice, computerChoice){
     } else if (playerSelection == 2 && computerSelection == 1) {
         playerWin = true;
     }
+    if(playerWin === true) {
+        window.alert('You win!');
+    } else if(playerWin === false) {
+        window.alert('You lose!');
+    }
+    return playerWin;
 }
+
+//literally loops the game
 const gameLoop = function() {
     while(playerScore !== 5 && computerScore !== 5) {
-        const playerWin = turn(playerTurn(), computerTurn());
-        score(playerWin);
+        playerWinRound = turn(playerTurn(), computerTurn());
+        score(playerWinRound);
+        window.alert(`Your score: ${playerScore}
+Computer's score: ${computerScore}`);
     }
     getWinner();
 }
 
+//does maths for the score
 const score = (playerWin) => {
     if(playerWin === true) {
         playerScore++;
@@ -69,18 +78,20 @@ const score = (playerWin) => {
     }
 }
 
+//decides the winner
 const getWinner = function() {
     if(playerScore === 5) {
-        window.alert(`You win!`);
+        window.alert(`You won the best of 5!`);
     } else {
-        window.alert(`You lose.`);
+        window.alert(`You lost the best of 5!`);
     }
 }
 
-
+//the game function.
 const game = function() {
     intro();
     gameLoop();
 }
 
+//this is how JS works I guess
 game();
