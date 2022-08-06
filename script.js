@@ -1,4 +1,8 @@
 //a complete do-over of the rock paper scissor Odin Project assignment
+
+
+//TO-DO: Show player immediate result
+
 let playerWin = false;
 let playerScore = 0;
 let computerScore = 0;
@@ -11,18 +15,15 @@ const intro = function() {
 //prompts players for a choice
 const playerTurn = function() {
     //this part is going into infinite loop and player is null
-    let playerChoice;
     let player = prompt("Rock, paper or scissor?");
-    player = player.toLowerCase();
     //code for player turn input
     if(player === 'rock') {
-        playerChoice = 0;
+        return playerChoice = 0;
     } else if(player === 'paper') {
-        playerChoice = 1;
+        return playerChoice = 1;
     } else if(player === 'scissor') {
-        playerChoice = 2;
+        return playerChoice = 2;
     }
-    return playerChoice;
 }
 
 //returns 0, 1 or 2 randomly
@@ -53,15 +54,11 @@ const turn = function(playerChoice, computerChoice){
     }
 }
 const gameLoop = function() {
-    
-    //decide winner
-    const playerWin = turn(playerTurn(), computerTurn());
-    score(playerWin);
-    if(playerScore !== 5 || computerScore !== 5) {
-        gameLoop();
-    } else {
-        getWinner();
+    while(playerScore !== 5 && computerScore !== 5) {
+        const playerWin = turn(playerTurn(), computerTurn());
+        score(playerWin);
     }
+    getWinner();
 }
 
 const score = (playerWin) => {
