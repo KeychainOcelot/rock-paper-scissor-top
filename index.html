@@ -6,14 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors in JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Welcome to Rock Paper Scissors in JS!</h1>
-    <p>Refresh the page to play again.</p>
-    <p>Sorry, I know the alert prompts are invasive.</p>
-    <script src="script.js"></script>
+    <h1 class="header">Welcome to rock, paper, scissors!</h1>
+    <div class="score">
+        <p>Your score: <span id="player"></span></p>
+        <p>Computer's score: <span id="computer"></span></p>
+    </div>
+    <div class="container">
+    <input type="button" value="rock" id="rock" class="button">
+    <input type="button" value="paper" id="paper" class="button">
+    <input type="button" value="scissor" id="scissor" class="button">
+    </div>
+    <!--<script src="script.js"></script>-->
 </body>
 
 </html>
