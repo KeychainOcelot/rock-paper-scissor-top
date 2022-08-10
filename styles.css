@@ -8,22 +8,41 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.header {
+}
+
 .button {
     background-color: #FFC23C;
     color: #31087B;
-    padding: 2em 5em;
     font-size: 3em;
     border-radius: 1em;
     border: none;
     font-family: 'Ubuntu', sans-serif;
+    margin: auto;
+    padding: 1em 2em;
 }
 
 .button:hover {
     color: #FFC23C;
     background-color: #31087B;
+    filter: drop-shadow(5px 3px 4px #FA2FB5);
 }
 
 .container {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+}
+
+@media (max-width: 480px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        height: 80%;
+        margin: 5px 1px;
+    }
 }

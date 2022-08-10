@@ -1,22 +1,37 @@
-//a complete do-over of the rock paper scissor Odin Project assignment
 
+//a complete do-over of the rock paper scissor Odin Project assignment
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
 let playerWinRound = false;
 let playerScore = 0;
 let computerScore = 0;
 
 const intro = function() {
-    window.alert(`Welcome to Rock, paper, scissor!
-Click okay to start!`);
+//    window.alert(`Welcome to Rock, paper, scissor!
+//Click okay to start!`);
 }
 
-//prompts player for a choice
+//prints player's and computer's choice
+const gameState = function() {
+    
+}
+
+//returns player choice depending on button pressed
 const playerTurn = function() {
-    let player = prompt("Rock, paper or scissor?");
-    if(player === 'rock') {
+//    let player = prompt("Rock, paper or scissor?");
+    // if(player === 'rock') {
+    //     return playerChoice = 0;
+    // } else if(player === 'paper') {
+    //     return playerChoice = 1;
+    // } else if(player === 'scissor') {
+    //     return playerChoice = 2;
+    // }
+    if(rock.clicked === true) {
         return playerChoice = 0;
-    } else if(player === 'paper') {
+    } else if (paper.clicked === true) {
         return playerChoice = 1;
-    } else if(player === 'scissor') {
+    } else if (scissor.clicked === true) {
         return playerChoice = 2;
     }
 }
@@ -35,7 +50,7 @@ const turn = function(playerChoice, computerChoice){
     const computerSelection = computerChoice;
     let playerWin = false;
     if (playerSelection === computerSelection) {
-        window.alert(`It's a tie!`);
+        //window.alert(`It's a tie!`);
         gameLoop();
     } else if (playerSelection == 0 && computerSelection == 1) {
         playerWin = false;
@@ -51,9 +66,9 @@ const turn = function(playerChoice, computerChoice){
         playerWin = true;
     }
     if(playerWin === true) {
-        window.alert('You win!');
+        //window.alert('You win!');
     } else if(playerWin === false) {
-        window.alert('You lose!');
+        //window.alert('You lose!');
     }
     return playerWin;
 }
@@ -63,8 +78,8 @@ const gameLoop = function() {
     while(playerScore !== 5 && computerScore !== 5) {
         playerWinRound = turn(playerTurn(), computerTurn());
         score(playerWinRound);
-        window.alert(`Your score: ${playerScore}
-Computer's score: ${computerScore}`);
+        //window.alert(`Your score: ${playerScore}
+//Computer's score: ${computerScore}`);
     }
     getWinner();
 }
@@ -81,9 +96,9 @@ const score = (playerWin) => {
 //decides the winner
 const getWinner = function() {
     if(playerScore === 5) {
-        window.alert(`You won the best of 5!`);
+        //window.alert(`You won the best of 5!`);
     } else {
-        window.alert(`You lost the best of 5!`);
+        //window.alert(`You lost the best of 5!`);
     }
 }
 
