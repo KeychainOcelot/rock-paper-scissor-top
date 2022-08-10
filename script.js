@@ -14,19 +14,11 @@ const intro = function() {
 
 //prints player's and computer's choice
 const gameState = function() {
-    
+
 }
 
 //returns player choice depending on button pressed
 const playerTurn = function() {
-//    let player = prompt("Rock, paper or scissor?");
-    // if(player === 'rock') {
-    //     return playerChoice = 0;
-    // } else if(player === 'paper') {
-    //     return playerChoice = 1;
-    // } else if(player === 'scissor') {
-    //     return playerChoice = 2;
-    // }
     if(rock.clicked === true) {
         return playerChoice = 0;
     } else if (paper.clicked === true) {
