@@ -3,7 +3,6 @@
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissor = document.querySelector("#scissor");
-let playerWinRound = false;
 let playerScore = 0;
 let computerScore = 0;
 const playerDisplay = document.querySelector("#player");
@@ -64,7 +63,7 @@ const turn = function(playerChoice, computerChoice){
 //literally loops the game
 const gameLoop = function() {
     while(playerScore !== 5 && computerScore !== 5) {
-        playerWinRound = turn(playerTurn(), computerTurn());
+        const playerWinRound = turn(playerTurn(), computerTurn());
         score(playerWinRound);
         //window.alert(`Your score: ${playerScore}
 //Computer's score: ${computerScore}`);
@@ -104,4 +103,4 @@ window.alert("THIS ROCK PAPER SCISSOR GAME IS CURRENTLY UNDER CONSTRUCTION");
 
 
 //this is how JS works I guess
-game();
+//game();
