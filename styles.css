@@ -38,11 +38,13 @@ body {
 
     .container {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .button {
-        width: 100%;
+        width: 70%;
         height: 80%;
-        margin: 5px 1px;
+        margin: 10px 5px;
     }
 }

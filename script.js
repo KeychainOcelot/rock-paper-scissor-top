@@ -6,15 +6,15 @@ const scissor = document.querySelector("#scissor");
 let playerWinRound = false;
 let playerScore = 0;
 let computerScore = 0;
+const playerDisplay = document.querySelector("#player");
+const compDisplay = document.querySelector("#computer");
 
-const intro = function() {
-//    window.alert(`Welcome to Rock, paper, scissor!
-//Click okay to start!`);
-}
+
 
 //prints player's and computer's choice
 const gameState = function() {
-
+    playerDisplay.innerText = playerScore;
+    compDisplay.innerText = computerScore;
 }
 
 //returns player choice depending on button pressed
@@ -57,11 +57,7 @@ const turn = function(playerChoice, computerChoice){
     } else if (playerSelection == 2 && computerSelection == 1) {
         playerWin = true;
     }
-    if(playerWin === true) {
-        //window.alert('You win!');
-    } else if(playerWin === false) {
-        //window.alert('You lose!');
-    }
+    gameState();
     return playerWin;
 }
 
@@ -83,22 +79,29 @@ const score = (playerWin) => {
     } else {
         computerScore++;
     }
+    gameState();
 }
 
 //decides the winner
 const getWinner = function() {
-    if(playerScore === 5) {
-        //window.alert(`You won the best of 5!`);
+    if(playerScore === 5 || computerScore === 5) {
+        window.alert(`You won the best of 5!`);
     } else {
-        //window.alert(`You lost the best of 5!`);
+        window.alert(`You lost the best of 5!`);
     }
 }
 
 //the game function.
 const game = function() {
-    intro();
+    playerTurn();
+    computerTurn();
     gameLoop();
 }
+
+//Under construction warning
+
+window.alert("THIS ROCK PAPER SCISSOR GAME IS CURRENTLY UNDER CONSTRUCTION");
+
 
 //this is how JS works I guess
 game();
