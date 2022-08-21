@@ -1,4 +1,3 @@
-
 //a complete do-over of the rock paper scissor Odin Project assignment
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
@@ -17,15 +16,19 @@ const gameState = function() {
 }
 
 //returns player choice depending on button pressed
+//This works!
 const playerTurn = function() {
-    if(rock.clicked === true) {
+    rock.addEventListener("click", () => {
         return playerChoice = 0;
-    } else if (paper.clicked === true) {
+    });
+    paper.addEventListener("click", () => {
         return playerChoice = 1;
-    } else if (scissor.clicked === true) {
+    });
+    scissor.addEventListener("click", () => {
         return playerChoice = 2;
-    }
+    })
 }
+
 
 //returns 0, 1 or 2 randomly for computer's input
 const computerTurn = function() {
@@ -82,7 +85,7 @@ const score = (playerWin) => {
 }
 
 //decides the winner
-const getWinner = function() {
+const getWinner = async function() {
     if(playerScore === 5 || computerScore === 5) {
         window.alert(`You won the best of 5!`);
     } else {
@@ -99,8 +102,8 @@ const game = function() {
 
 //Under construction warning
 
-window.alert("THIS ROCK PAPER SCISSOR GAME IS CURRENTLY UNDER CONSTRUCTION");
+//window.alert("THIS ROCK PAPER SCISSOR GAME IS CURRENTLY UNDER CONSTRUCTION");
 
 
 //this is how JS works I guess
-//game();
+game();
