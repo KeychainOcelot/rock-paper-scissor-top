@@ -8,7 +8,6 @@ const playerDisplay = document.querySelector("#player");
 const compDisplay = document.querySelector("#computer");
 
 
-
 //prints player's and computer's choice
 const gameState = function() {
     playerDisplay.innerText = playerScore;
@@ -67,7 +66,7 @@ const turn = function(playerChoice, computerChoice){
 const gameLoop = function() {
     while(playerScore !== 5 && computerScore !== 5) {
         const playerWinRound = turn(playerTurn(), computerTurn());
-        score(playerWinRound);
+        //score(playerWinRound);
         //window.alert(`Your score: ${playerScore}
 //Computer's score: ${computerScore}`);
     }
@@ -85,7 +84,7 @@ const score = (playerWin) => {
 }
 
 //decides the winner
-const getWinner = async function() {
+const getWinner = function() {
     if(playerScore === 5 || computerScore === 5) {
         window.alert(`You won the best of 5!`);
     } else {
@@ -95,9 +94,7 @@ const getWinner = async function() {
 
 //the game function.
 const game = function() {
-    playerTurn();
-    computerTurn();
-    gameLoop();
+//    gameLoop();
 }
 
 //Under construction warning
