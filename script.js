@@ -16,24 +16,19 @@ const gameState = function() {
 
 //returns player choice depending on button pressed
 //This works!
-const playerTurn = function() {
-    rock.addEventListener("click", () => {
-        return playerChoice = 0;
-    });
-    paper.addEventListener("click", () => {
-        return playerChoice = 1;
-    });
-    scissor.addEventListener("click", () => {
-        return playerChoice = 2;
-    })
-}
-
+rock.addEventListener("click", () => {
+    return playerChoice = 0;
+});
+paper.addEventListener("click", () => {
+    return playerChoice = 1;
+});
+scissor.addEventListener("click", () => {
+    return playerChoice = 2;
+});
 
 //returns 0, 1 or 2 randomly for computer's input
 const computerTurn = function() {
-    let computerChoice;
-    computerChoice = Math.floor(Math.random() * 3); 
-    return computerChoice;
+    return Math.floor(Math.random() * 3); 
 }
 
 //this has to be done better somehow
@@ -62,17 +57,6 @@ const turn = function(playerChoice, computerChoice){
     return playerWin;
 }
 
-//literally loops the game
-const gameLoop = function() {
-    while(playerScore !== 5 && computerScore !== 5) {
-        const playerWinRound = turn(playerTurn(), computerTurn());
-        //score(playerWinRound);
-        //window.alert(`Your score: ${playerScore}
-//Computer's score: ${computerScore}`);
-    }
-    getWinner();
-}
-
 //does maths for the score
 const score = (playerWin) => {
     if(playerWin === true) {
@@ -80,7 +64,6 @@ const score = (playerWin) => {
     } else {
         computerScore++;
     }
-    gameState();
 }
 
 //decides the winner
@@ -92,15 +75,4 @@ const getWinner = function() {
     }
 }
 
-//the game function.
-const game = function() {
-//    gameLoop();
-}
 
-//Under construction warning
-
-//window.alert("THIS ROCK PAPER SCISSOR GAME IS CURRENTLY UNDER CONSTRUCTION");
-
-
-//this is how JS works I guess
-game();
