@@ -6,7 +6,7 @@ let playerScore = 0;
 let computerScore = 0;
 const playerDisplay = document.querySelector("#player");
 const compDisplay = document.querySelector("#computer");
-
+let computerChoice = 0;
 
 //prints player's and computer's choice
 const gameState = function() {
@@ -14,22 +14,26 @@ const gameState = function() {
     compDisplay.innerText = computerScore;
 }
 
-//returns player choice depending on button pressed
-//This works!
-rock.addEventListener("click", () => {
-    return playerChoice = 0;
-});
-paper.addEventListener("click", () => {
-    return playerChoice = 1;
-});
-scissor.addEventListener("click", () => {
-    return playerChoice = 2;
-});
-
 //returns 0, 1 or 2 randomly for computer's input
 const computerTurn = function() {
     return Math.floor(Math.random() * 3); 
 }
+
+
+//returns player choice depending on button pressed
+//This works!
+rock.addEventListener("click", () => {
+    computerChoice = computerTurn();
+    return playerChoice = 0;
+});
+paper.addEventListener("click", () => {
+    computerChoice = computerTurn();
+    return playerChoice = 1;
+});
+scissor.addEventListener("click", () => {
+    computerChoice = computerTurn();
+    return playerChoice = 2;
+});
 
 //this has to be done better somehow
 //compares playerChoice and computerChoice
@@ -38,23 +42,29 @@ const turn = function(playerChoice, computerChoice){
     const computerSelection = computerChoice;
     let playerWin = false;
     if (playerSelection === computerSelection) {
-        //window.alert(`It's a tie!`);
-        gameLoop();
+        //figure out what to do in case of tie
+        getWinner();
     } else if (playerSelection == 0 && computerSelection == 1) {
         playerWin = false;
+        score(playerWin);
     } else if (playerSelection == 0 && computerSelection == 2) {
         playerWin = true;
+        score(playerWin);
     } else if (playerSelection == 1 && computerSelection == 0) {
         playerWin = true;
+        score(playerWin);
     } else if (playerSelection == 1 && computerSelection == 2) {
         playerWin = false;
+        score(playerWin);
     } else if (playerSelection == 2 && computerSelection == 0) {
         playerWin = false;
+        score(playerWin);
     } else if (playerSelection == 2 && computerSelection == 1) {
         playerWin = true;
+        score(playerWin);
     }
+    getWinner();
     gameState();
-    return playerWin;
 }
 
 //does maths for the score
@@ -68,11 +78,21 @@ const score = (playerWin) => {
 
 //decides the winner
 const getWinner = function() {
-    if(playerScore === 5 || computerScore === 5) {
+    if(playerScore === 5) {
         window.alert(`You won the best of 5!`);
-    } else {
+        return true;
+    } else if (computerScore === 5){
         window.alert(`You lost the best of 5!`);
+        return true;
+    } else {
+        return false;
     }
 }
 
+const game = function() {
+    while(!getWinner) {
+        turn(playerChoice, computerChoice);
+    }
+}
 
+game();
